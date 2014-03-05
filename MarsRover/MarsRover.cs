@@ -17,6 +17,9 @@
 				case "B":
 					MoveBackward();
 					break;
+				case "R":
+					TurnRight();
+					break;
 			}
 		}
 
@@ -28,6 +31,11 @@
 		private void MoveBackward()
 		{
 			_y--;
+		}
+
+		private void TurnRight()
+		{
+			_direction = _direction == Direction.W ? Direction.N : _direction + 1;
 		}
 
 		public string CurrentPosition

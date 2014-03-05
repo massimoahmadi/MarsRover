@@ -40,16 +40,16 @@
 			switch (_direction)
 			{
 				case Direction.N:
-					_y++;
+					IncrementY();
 					break;
 				case Direction.E:
-					_x++;
+					IncrementX();
 					break;
 				case Direction.S:
-					_y--;
+					DecrementY();
 					break;
 				case Direction.W:
-					_x--;
+					DecrementX();
 					break;
 			}
 		}
@@ -59,16 +59,16 @@
 			switch (_direction)
 			{
 				case Direction.N:
-					_y--;
+					DecrementY();
 					break;
 				case Direction.E:
-					_x--;
+					DecrementX();
 					break;
 				case Direction.S:
-					_y++;
+					IncrementY();
 					break;
 				case Direction.W:
-					_x++;
+					IncrementX();
 					break;
 			}
 		}
@@ -81,6 +81,26 @@
 		private void TurnLeft()
 		{
 			_direction = _direction == Direction.N ? Direction.W : _direction - 1;
+		}
+
+		private void IncrementY()
+		{
+			_y = _y == (planet.GridHeight - 1) ? 0 : _y + 1;
+		}
+
+		private void IncrementX()
+		{
+			_x = _x == (planet.GridWidth - 1) ? 0 : _x + 1;
+		}
+
+		private void DecrementY()
+		{
+			_y = _y == 0 ? (planet.GridHeight - 1) : _y - 1;
+		}
+
+		private void DecrementX()
+		{
+			_x = _x == 0 ? (planet.GridWidth - 1) : _x - 1;
 		}
 
 		public string CurrentPosition

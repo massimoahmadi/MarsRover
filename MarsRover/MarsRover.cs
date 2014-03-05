@@ -7,22 +7,25 @@
 		private int _y;
 		private Direction _direction;
 
-		public void Move(string command)
+		public void Move(string commands)
 		{
-			switch (command)
+			foreach (var command in commands.ToCharArray())
 			{
-				case "F":
-					MoveForward();
-					break;
-				case "B":
-					MoveBackward();
-					break;
-				case "R":
-					TurnRight();
-					break;
-				case "L":
-					TurnLeft();
-					break;
+				switch (command)
+				{
+					case 'F':
+						MoveForward();
+						break;
+					case 'B':
+						MoveBackward();
+						break;
+					case 'R':
+						TurnRight();
+						break;
+					case 'L':
+						TurnLeft();
+						break;
+				}
 			}
 		}
 

@@ -3,7 +3,7 @@
 namespace MarsRover
 {
 	[TestClass]
-	public class UnitTests
+	public class AtomicCommandUnitTests
 	{
 		[TestMethod]
 		public void When_A_New_Rover_Is_Created_The_Position_Should_Be_0_0_N()

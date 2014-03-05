@@ -14,12 +14,20 @@
 				case "F":
 					MoveForward();
 					break;
+				case "B":
+					MoveBackward();
+					break;
 			}
 		}
 
 		private void MoveForward()
 		{
 			_y++;
+		}
+
+		private void MoveBackward()
+		{
+			_y--;
 		}
 
 		public string CurrentPosition

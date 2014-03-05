@@ -9,6 +9,17 @@
 
 		public void Move(string command)
 		{
+			switch (command)
+			{
+				case "F":
+					MoveForward();
+					break;
+			}
+		}
+
+		private void MoveForward()
+		{
+			_y++;
 		}
 
 		public string CurrentPosition

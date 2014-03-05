@@ -6,6 +6,12 @@
 		private int _x;
 		private int _y;
 		private Direction _direction;
+		private readonly IPlanet planet;
+
+		public MarsRover(IPlanet planet)
+		{
+			this.planet = planet;
+		}
 
 		public void Move(string commands)
 		{

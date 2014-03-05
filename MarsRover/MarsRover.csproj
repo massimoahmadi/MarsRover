@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CombinedCommandUnitTests.cs" />
+    <Compile Include="Mars.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="IPlanet.cs" />
     <Compile Include="MarsRover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AtomicCommandUnitTests.cs" />

@@ -8,7 +8,7 @@ namespace MarsRover
 		[TestMethod]
 		public void When_A_New_Rover_Is_Given_The_Command_FF_The_Position_Should_Be_0_2_N()
 		{
-			var rover = new MarsRover();
+			var rover = new MarsRover(new Mars());
 
 			rover.Move("FF");
 
@@ -18,7 +18,7 @@ namespace MarsRover
 		[TestMethod]
 		public void When_A_New_Rover_Is_Given_The_Command_FFRFF_The_Position_Should_Be_2_2_E()
 		{
-			var rover = new MarsRover();
+			var rover = new MarsRover(new Mars());
 
 			rover.Move("FFRFF");
 

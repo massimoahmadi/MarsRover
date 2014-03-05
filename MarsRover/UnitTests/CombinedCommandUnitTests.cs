@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MarsRover
+namespace MarsRover.UnitTests
 {
 	[TestClass]
 	public class CombinedCommandUnitTests

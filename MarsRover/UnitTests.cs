@@ -32,5 +32,15 @@ namespace MarsRover
 
 			Assert.AreEqual("0, -1, N", rover.CurrentPosition);
 		}
+
+		[TestMethod]
+		public void When_A_New_Rover_Is_Given_The_Command_R_The_Position_Should_Be_0_0_E()
+		{
+			var rover = new MarsRover();
+
+			rover.Move("R");
+
+			Assert.AreEqual("0, 0, E", rover.CurrentPosition);
+		}
 	}
 }

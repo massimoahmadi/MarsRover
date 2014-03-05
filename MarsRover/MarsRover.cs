@@ -16,7 +16,7 @@
 			get
 			{
 				{
-					return "";
+					return string.Format("{0}, {1}, {2}", _x, _y, _direction);
 				}
 			}
 		}

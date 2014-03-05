@@ -1,4 +1,7 @@
-﻿namespace MarsRover
+﻿using System;
+using System.Linq;
+
+namespace MarsRover
 {
 	public class MarsRover
 	{
@@ -85,22 +88,50 @@
 
 		private void IncrementY()
 		{
-			_y = _y == (planet.GridHeight - 1) ? 0 : _y + 1;
+			var newY = _y == (planet.GridHeight - 1) ? 0 : _y + 1;
+
+			if (planet.Obstacles.Any(o => o.X == _x & o.Y == newY))
+			{
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", _x, newY), CurrentPosition);
+			}
+
+			_y = newY;
 		}
 
 		private void IncrementX()
 		{
-			_x = _x == (planet.GridWidth - 1) ? 0 : _x + 1;
+			var newX = _x == (planet.GridWidth - 1) ? 0 : _x + 1;
+
+			if (planet.Obstacles.Any(o => o.X == newX & o.Y == _y))
+			{
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, _y), CurrentPosition);
+			}
+
+			_x = newX;
 		}
 
 		private void DecrementY()
 		{
-			_y = _y == 0 ? (planet.GridHeight - 1) : _y - 1;
+			var newY = _y == 0 ? (planet.GridHeight - 1) : _y - 1;
+
+			if (planet.Obstacles.Any(o => o.X == _x & o.Y == newY))
+			{
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", _x, newY), CurrentPosition);
+			}
+
+			_y = newY;
 		}
 
 		private void DecrementX()
 		{
-			_x = _x == 0 ? (planet.GridWidth - 1) : _x - 1;
+			var newX = _x == 0 ? (planet.GridWidth - 1) : _x - 1;
+
+			if (planet.Obstacles.Any(o => o.X == newX & o.Y == _y))
+			{
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, _y), CurrentPosition);
+			}
+
+			_x = newX;
 		}
 
 		public string CurrentPosition

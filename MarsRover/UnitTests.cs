@@ -52,5 +52,41 @@ namespace MarsRover
 
 			Assert.AreEqual("0, 0, W", rover.CurrentPosition);
 		}
+
+		[TestMethod]
+		public void When_A_New_Rover_Is_Given_The_Command_L_Four_Times_The_Position_Should_Be_0_0_N()
+		{
+			var rover = new MarsRover();
+
+			rover.Move("L");
+			Assert.AreEqual("0, 0, W", rover.CurrentPosition);
+
+			rover.Move("L");
+			Assert.AreEqual("0, 0, S", rover.CurrentPosition);
+
+			rover.Move("L");
+			Assert.AreEqual("0, 0, E", rover.CurrentPosition);
+
+			rover.Move("L");
+			Assert.AreEqual("0, 0, N", rover.CurrentPosition);
+		}
+
+		[TestMethod]
+		public void When_A_New_Rover_Is_Given_The_Command_R_Four_Times_The_Position_Should_Be_0_0_N()
+		{
+			var rover = new MarsRover();
+
+			rover.Move("R");
+			Assert.AreEqual("0, 0, E", rover.CurrentPosition);
+
+			rover.Move("R");
+			Assert.AreEqual("0, 0, S", rover.CurrentPosition);
+
+			rover.Move("R");
+			Assert.AreEqual("0, 0, W", rover.CurrentPosition);
+
+			rover.Move("R");
+			Assert.AreEqual("0, 0, N", rover.CurrentPosition);
+		}
 	}
 }

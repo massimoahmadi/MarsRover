@@ -2,18 +2,18 @@
 
 namespace MarsRover
 {
-	public class Mars : IPlanet
+	public class MarsWithObstacles : IPlanet
 	{
 		public int GridWidth { get; private set; }
 		public int GridHeight { get; private set; }
 		public Obstacle[] Obstacles { get; private set; }
 
-		public Mars()
+		public MarsWithObstacles(Obstacle[] obstacles)
 		{
 			GridWidth = 10;
 			GridHeight = 10;
 
-			Obstacles = new Obstacle[0];
+			Obstacles = obstacles;
 		}
 	}
 }

@@ -40,13 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Obstacle.cs" />
     <Compile Include="UnitTests\CombinedCommandUnitTests.cs" />
+    <Compile Include="MarsWithObstacles.cs" />
     <Compile Include="Mars.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="IPlanet.cs" />
     <Compile Include="MarsRover.cs" />
+    <Compile Include="ObstacleException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\AtomicCommandUnitTests.cs" />
+    <Compile Include="UnitTests\MoveBackwardObstacleUnitTests.cs" />
+    <Compile Include="UnitTests\MoveForwardObstacleUnitTests.cs" />
     <Compile Include="UnitTests\WrappingUnitTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

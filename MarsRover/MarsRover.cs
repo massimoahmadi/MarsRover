@@ -20,6 +20,9 @@
 				case "R":
 					TurnRight();
 					break;
+				case "L":
+					TurnLeft();
+					break;
 			}
 		}
 
@@ -36,6 +39,11 @@
 		private void TurnRight()
 		{
 			_direction = _direction == Direction.W ? Direction.N : _direction + 1;
+		}
+
+		private void TurnLeft()
+		{
+			_direction = _direction == Direction.N ? Direction.W : _direction - 1;
 		}
 
 		public string CurrentPosition

@@ -47,7 +47,21 @@
 
 		private void MoveBackward()
 		{
-			_y--;
+			switch (_direction)
+			{
+				case Direction.N:
+					_y--;
+					break;
+				case Direction.E:
+					_x--;
+					break;
+				case Direction.S:
+					_y++;
+					break;
+				case Direction.W:
+					_x++;
+					break;
+			}
 		}
 
 		private void TurnRight()

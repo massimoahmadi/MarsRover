@@ -6,9 +6,9 @@ namespace MarsRover
 	public class MarsRover
 	{
 		// Could use properties if public access required.
-		private int _x;
-		private int _y;
-		private Direction _direction;
+		private int currentX;
+		private int currentY;
+		private Direction direction;
 		private readonly IPlanet planet;
 
 		public MarsRover(IPlanet planet)
@@ -40,7 +40,7 @@ namespace MarsRover
 
 		private void MoveForward()
 		{
-			switch (_direction)
+			switch (direction)
 			{
 				case Direction.N:
 					IncrementY();
@@ -59,7 +59,7 @@ namespace MarsRover
 
 		private void MoveBackward()
 		{
-			switch (_direction)
+			switch (direction)
 			{
 				case Direction.N:
 					DecrementY();
@@ -78,60 +78,60 @@ namespace MarsRover
 
 		private void TurnRight()
 		{
-			_direction = _direction == Direction.W ? Direction.N : _direction + 1;
+			direction = direction == Direction.W ? Direction.N : direction + 1;
 		}
 
 		private void TurnLeft()
 		{
-			_direction = _direction == Direction.N ? Direction.W : _direction - 1;
+			direction = direction == Direction.N ? Direction.W : direction - 1;
 		}
 
 		private void IncrementY()
 		{
-			var newY = _y == (planet.GridHeight - 1) ? 0 : _y + 1;
+			var newY = currentY == (planet.GridHeight - 1) ? 0 : currentY + 1;
 
-			if (planet.Obstacles.Any(o => o.X == _x & o.Y == newY))
+			if (planet.Obstacles.Any(o => o.X == currentX & o.Y == newY))
 			{
-				throw new ObstacleDetectedException(string.Format("{0}, {1}", _x, newY), CurrentPosition);
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", currentX, newY), CurrentPosition);
 			}
 
-			_y = newY;
+			currentY = newY;
 		}
 
 		private void IncrementX()
 		{
-			var newX = _x == (planet.GridWidth - 1) ? 0 : _x + 1;
+			var newX = currentX == (planet.GridWidth - 1) ? 0 : currentX + 1;
 
-			if (planet.Obstacles.Any(o => o.X == newX & o.Y == _y))
+			if (planet.Obstacles.Any(o => o.X == newX & o.Y == currentY))
 			{
-				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, _y), CurrentPosition);
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, currentY), CurrentPosition);
 			}
 
-			_x = newX;
+			currentX = newX;
 		}
 
 		private void DecrementY()
 		{
-			var newY = _y == 0 ? (planet.GridHeight - 1) : _y - 1;
+			var newY = currentY == 0 ? (planet.GridHeight - 1) : currentY - 1;
 
-			if (planet.Obstacles.Any(o => o.X == _x & o.Y == newY))
+			if (planet.Obstacles.Any(o => o.X == currentX & o.Y == newY))
 			{
-				throw new ObstacleDetectedException(string.Format("{0}, {1}", _x, newY), CurrentPosition);
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", currentX, newY), CurrentPosition);
 			}
 
-			_y = newY;
+			currentY = newY;
 		}
 
 		private void DecrementX()
 		{
-			var newX = _x == 0 ? (planet.GridWidth - 1) : _x - 1;
+			var newX = currentX == 0 ? (planet.GridWidth - 1) : currentX - 1;
 
-			if (planet.Obstacles.Any(o => o.X == newX & o.Y == _y))
+			if (planet.Obstacles.Any(o => o.X == newX & o.Y == currentY))
 			{
-				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, _y), CurrentPosition);
+				throw new ObstacleDetectedException(string.Format("{0}, {1}", newX, currentY), CurrentPosition);
 			}
 
-			_x = newX;
+			currentX = newX;
 		}
 
 		public string CurrentPosition
@@ -139,7 +139,7 @@ namespace MarsRover
 			get
 			{
 				{
-					return string.Format("{0}, {1}, {2}", _x, _y, _direction);
+					return string.Format("{0}, {1}, {2}", currentX, currentY, direction);
 				}
 			}
 		}
